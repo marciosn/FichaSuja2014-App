@@ -33,6 +33,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private List<Politico> politicos = new ArrayList<Politico>();
 	private ListView listView;
 	private Adapter adapter;
+	private Politico politico;
 
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
@@ -67,12 +68,14 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				
 				for(int i = 0; i < response.length(); i++ ){
 					try {
-						Politico politico = new Politico();
+						
 						JSONObject object = response.getJSONObject(RSP);
 						JSONArray array = object.getJSONArray(CONTENT);
 						
 							for(int j=0; j < array.length();j++){
+								politico = new Politico();
 								JSONObject politicoJSON = new JSONObject(array.getString(j));
+								Log.d(TAG, "GESTORES: "+politicoJSON.get(GESTOR));
 								politico.setGestor(politicoJSON.getString(GESTOR));
 								double processo = Double.parseDouble(politicoJSON.getString(PROCESSO));
 								politico.setProcesso(processo);
