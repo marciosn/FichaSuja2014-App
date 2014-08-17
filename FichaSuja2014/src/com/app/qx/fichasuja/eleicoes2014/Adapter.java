@@ -37,8 +37,11 @@ public class Adapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View view, ViewGroup parent) {
 		Politico politico = politicos.get(position);
-		view = inflater.inflate(R.layout.item_list, null);
-		((TextView) view.findViewById(R.id.text)).setText(politico.getGestor());
+		//view = inflater.inflate(R.layout.item_list, null);
+		view = inflater.inflate(R.layout.list_row, null);
+		//((TextView) view.findViewById(R.id.text)).setText(politico.getGestor());
+		((TextView) view.findViewById(R.id.itemGestor)).setText(politico.getGestor());
+		((TextView) view.findViewById(R.id.itemMunicipio)).setText(politico.getMunicipio());
 		return view;
 	}
 

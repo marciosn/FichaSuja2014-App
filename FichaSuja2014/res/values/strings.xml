@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FichaSuja2014</string>
+    <string name="app_name">Ficha Suja 2014</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_testa_volley">TestaVolley</string>

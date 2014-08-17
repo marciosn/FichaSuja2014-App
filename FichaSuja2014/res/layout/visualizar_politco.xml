@@ -9,75 +9,141 @@
     tools:context=".VisualizarPolitco" >
 
     <TextView
-        android:id="@+id/gestor"
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
+        android:text="Nome do Gestor:" />
+
+    <TextView
+        android:id="@+id/gestor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold"
+         />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/gestor"
+        android:layout_below="@+id/gestor"
+        android:text="Número do Processo:" />
 
     <TextView
         android:id="@+id/processo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/gestor"
-        android:layout_below="@+id/gestor"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_below="@+id/textView2"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/processo"
+        android:layout_below="@+id/processo"
+        android:text="Município:" />
 
     <TextView
         android:id="@+id/municipio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/processo"
-        android:layout_below="@+id/processo"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_below="@+id/textView3"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/municipio"
+        android:text="Natureza do processo:" />
 
     <TextView
         android:id="@+id/natureza_processo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/municipio"
-        android:layout_below="@+id/municipio"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_below="@+id/textView4"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/natureza_processo"
+        android:text="Ano de exercício:" />
 
     <TextView
         android:id="@+id/exercicio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/natureza_processo"
-        android:layout_below="@+id/natureza_processo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_below="@+id/textView5"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/exercicio"
+        android:text="Nota de improbidade:" />
 
     <TextView
         android:id="@+id/nota_improbidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/exercicio"
-        android:layout_below="@+id/exercicio"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/exercicio"
+        android:layout_below="@+id/textView6"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/nota_improbidade"
+        android:text="Código do gestor:" />
 
     <TextView
         android:id="@+id/codigo_gestor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/nota_improbidade"
-        android:layout_below="@+id/nota_improbidade"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/nota_improbidade"
+        android:layout_below="@+id/textView7"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/codigo_gestor"
+        android:text="Código do município:" />
 
     <TextView
         android:id="@+id/codigo_municipio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/codigo_gestor"
-        android:layout_below="@+id/codigo_gestor"
+        android:layout_alignParentLeft="true"
+        android:layout_alignRight="@+id/codigo_gestor"
+        android:layout_below="@+id/textView8"
         android:text="Medium Text"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textStyle="bold" />
 
 </RelativeLayout>

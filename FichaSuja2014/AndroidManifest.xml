@@ -13,7 +13,7 @@
     <application
         android:name="com.app.qx.fichasuja.eleicoes2014.AppController"
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity

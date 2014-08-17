@@ -11,7 +11,6 @@ public class VisualizarPolitco extends Activity {
 	private TextView gestorTV, processoTV, municipioTV, natureza_processoTV,
 			exercicioTV, nota_improbidadeTV, codigo_gestorTV,
 			codigo_municipioVT;
-	private Intent intent;
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
 	private static final String MUNICIPIO = "municipio";
