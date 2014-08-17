@@ -29,6 +29,10 @@
             android:name="com.app.qx.fichasuja.eleicoes2014.TestaVolley"
             android:label="@string/title_activity_testa_volley" >
         </activity>
+        <activity
+            android:name="com.app.qx.fichasuja.eleicoes2014.VisualizarPolitco"
+            android:label="@string/title_activity_visualizar_politco" >
+        </activity>
     </application>
 
 </manifest>

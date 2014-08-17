@@ -9,20 +9,18 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.JsonObjectRequest;
 
 @SuppressLint("NewApi")
@@ -52,11 +50,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		setContentView(R.layout.activity_main);
 				
 		listView = (ListView) findViewById(R.id.lista);
+		listView.setOnItemClickListener(this);
 		adapter = new Adapter(this, politicos);
-		listView.setAdapter(adapter);
 		
 		dialog = new ProgressDialog(this);
-		dialog.setMessage("Carregando");
+		dialog.setMessage("Carregando...");
 		dialog.show();
 		
 		JsonObjectRequest request = new JsonObjectRequest(url, null, new Response.Listener<JSONObject>() {
@@ -120,9 +118,24 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		// TODO Auto-generated method stub
-
+	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+		Intent intent = new Intent(MainActivity.this, VisualizarPolitco.class);
+		Politico politico = (Politico) parent.getItemAtPosition(position);
+		
+		String processo = String.valueOf(politico.getProcesso());
+		String exercicio = String.valueOf(politico.getExercicio());
+		String codigo_gestor = String.valueOf(politico.getCodigo_gestor());
+		String codigo_municipio = String.valueOf(politico.getCodigo_municipio());
+		
+		intent.putExtra(GESTOR, politico.getGestor());
+		intent.putExtra(PROCESSO, processo);
+		intent.putExtra(MUNICIPIO, politico.getMunicipio());
+		intent.putExtra(NATUREZA_PROCESSO, politico.getNatureza_processo());
+		intent.putExtra(EXERCICIO, exercicio);
+		intent.putExtra(NOTA_IMPROBIDADE, politico.getNota_improbidade());
+		intent.putExtra(CODIG0_GESTOR, codigo_gestor);
+		intent.putExtra(CODIGO_MUNICIPIO, codigo_municipio);
+		startActivity(intent);
 	}
 
 }
