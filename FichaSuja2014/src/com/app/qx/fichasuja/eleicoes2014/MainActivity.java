@@ -9,14 +9,20 @@ import org.json.JSONObject;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SearchView;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -32,6 +38,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private ListView listView;
 	private Adapter adapter;
 	private Politico politico;
+	private EditText busca;
 
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
@@ -115,6 +122,16 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			dialog.dismiss();
 			dialog = null;
 		}
+	}
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.main_actions, menu);
+
+		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+		SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
+		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+		return super.onCreateOptionsMenu(menu);
 	}
 
 	@Override
