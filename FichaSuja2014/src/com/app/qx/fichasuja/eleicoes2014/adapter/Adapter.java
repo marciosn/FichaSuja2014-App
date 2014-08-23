@@ -1,7 +1,12 @@
-package com.app.qx.fichasuja.eleicoes2014;
+package com.app.qx.fichasuja.eleicoes2014.adapter;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.app.qx.fichasuja.eleicoes2014.R;
+import com.app.qx.fichasuja.eleicoes2014.R.id;
+import com.app.qx.fichasuja.eleicoes2014.R.layout;
+import com.app.qx.fichasuja.eleicoes2014.models.Politico;
 
 import android.content.Context;
 import android.view.LayoutInflater;

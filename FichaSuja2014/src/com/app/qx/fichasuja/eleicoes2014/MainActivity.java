@@ -28,6 +28,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
+import com.app.qx.fichasuja.eleicoes2014.controller.AppController;
+import com.app.qx.fichasuja.eleicoes2014.models.Politico;
 
 @SuppressLint("NewApi")
 public class MainActivity extends Activity implements OnItemClickListener {
@@ -50,7 +53,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private static final String CODIGO_MUNICIPIO = "codigo_municipio";
 	private static final String CONTENT = "_content";
 	private static final String RSP = "rsp";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);

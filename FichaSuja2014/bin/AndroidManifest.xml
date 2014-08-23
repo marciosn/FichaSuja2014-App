@@ -5,25 +5,36 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="10"
+        android:minSdkVersion="16"
         android:targetSdkVersion="18" />
 
+    <uses-permission android:name="com.marciosn.qx.municipios.maps.app2014.permission.MAPS_RECEIVE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <application
-        android:name="com.app.qx.fichasuja.eleicoes2014.AppController"
+        android:name="com.app.qx.fichasuja.eleicoes2014.controller.AppController"
         android:allowBackup="true"
         android:icon="@drawable/icon1"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCrjxpoY82CDyhPbbLS4tBY2S5ZdQ_C-F4" />
+        
         <activity
             android:name="com.app.qx.fichasuja.eleicoes2014.MainActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            
         </activity>
         <activity
             android:name="com.app.qx.fichasuja.eleicoes2014.TestaVolley"
@@ -32,6 +43,15 @@
         <activity
             android:name="com.app.qx.fichasuja.eleicoes2014.VisualizarPolitco"
             android:label="@string/title_activity_visualizar_politco" >
+        </activity>
+        <activity
+            android:name="com.app.qx.fichasuja.eleicoes2014.MunicipiosNoMapa"
+            android:label="@string/title_activity_municipios_no_mapa" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 

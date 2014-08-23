@@ -1,4 +1,4 @@
-package com.app.qx.fichasuja.eleicoes2014;
+package com.app.qx.fichasuja.eleicoes2014.controller;
 
 import android.app.Application;
 import android.text.TextUtils;

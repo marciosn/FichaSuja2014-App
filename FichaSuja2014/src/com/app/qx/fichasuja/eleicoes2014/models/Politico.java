@@ -1,4 +1,4 @@
-package com.app.qx.fichasuja.eleicoes2014;
+package com.app.qx.fichasuja.eleicoes2014.models;
 
 public class Politico {
 	private String gestor;
