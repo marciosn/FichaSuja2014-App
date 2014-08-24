@@ -57,7 +57,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 				
-		listView = (ListView) findViewById(R.id.lista);
+		listView = (ListView) findViewById(R.id.listaMunicipios);
 		listView.setOnItemClickListener(this);
 		adapter = new Adapter(this, politicos);
 		

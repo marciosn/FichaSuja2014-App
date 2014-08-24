@@ -9,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.widget.Toast;
 
+import com.app.qx.fichasuja.eleicoes2014.models.CriaMunicipios;
 import com.app.qx.fichasuja.eleicoes2014.models.MunicipioObj;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient.ConnectionCallbacks;

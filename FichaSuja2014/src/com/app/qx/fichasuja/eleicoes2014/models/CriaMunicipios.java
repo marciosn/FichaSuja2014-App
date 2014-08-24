@@ -1,9 +1,8 @@
-package com.app.qx.fichasuja.eleicoes2014;
+package com.app.qx.fichasuja.eleicoes2014.models;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.app.qx.fichasuja.eleicoes2014.models.MunicipioObj;
 
 public class CriaMunicipios {
 	public CriaMunicipios() {
@@ -132,12 +131,12 @@ public class CriaMunicipios {
 	private  MunicipioObj CEDRO = new MunicipioObj("Cedro",-6.591,-39.12);
 	private  MunicipioObj ICO = new MunicipioObj("Icó",-6.352,-38.757);
 	private  MunicipioObj PEREIRO = new MunicipioObj("Pereiro",-5.977,-38.492);
-	private  MunicipioObj ERERê = new MunicipioObj("Ererê",-5.997,-38.312);
+	private  MunicipioObj ERERE = new MunicipioObj("Ererê",-5.997,-38.312);
 	private  MunicipioObj JAGUARIBE = new MunicipioObj("Jaguaribe",-5.973,-38.686);
 	private  MunicipioObj JAGUARETAMA = new MunicipioObj("Jaguaretama",-5.483,-38.756);
 	private  MunicipioObj JAGUARIBARA = new MunicipioObj("Jaguaribara",-5.65,-38.51);
 	private  MunicipioObj IGUATU = new MunicipioObj("Iguatu",-6.355,-39.277);
-	private  MunicipioObj QUIXELô = new MunicipioObj("Quixelô",-6.151,-39.117);
+	private  MunicipioObj QUIXELÔ = new MunicipioObj("Quixelô",-6.151,-39.117);
 	private  MunicipioObj OROS = new MunicipioObj("Orós",-6.255,-38.968);
 	private  MunicipioObj CARIUS = new MunicipioObj("Cariús",-6.656,-39.475);
 	private  MunicipioObj ACOPIARA = new MunicipioObj("Acopiara",-6.113,-39.518);
@@ -956,10 +955,10 @@ public class CriaMunicipios {
 		PEREIRO = pEREIRO;
 	}
 	public MunicipioObj getERERê() {
-		return ERERê;
+		return ERERE;
 	}
 	public void setERERê(MunicipioObj eRERê) {
-		ERERê = eRERê;
+		ERERE = eRERê;
 	}
 	public MunicipioObj getJAGUARIBE() {
 		return JAGUARIBE;
@@ -986,10 +985,10 @@ public class CriaMunicipios {
 		IGUATU = iGUATU;
 	}
 	public MunicipioObj getQUIXELô() {
-		return QUIXELô;
+		return QUIXELÔ;
 	}
 	public void setQUIXELô(MunicipioObj qUIXELô) {
-		QUIXELô = qUIXELô;
+		QUIXELÔ = qUIXELô;
 	}
 	public MunicipioObj getOROS() {
 		return OROS;

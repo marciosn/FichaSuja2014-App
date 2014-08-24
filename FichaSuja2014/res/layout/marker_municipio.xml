@@ -14,18 +14,27 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="39dp"
         android:text="Medium Text"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+    
+    <ListView
+        android:id="@+id/listaMunicipios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" >
+
+    </ListView>
 
     <Button
         android:id="@+id/button1"
+        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/NomeMunicipio"
-        android:layout_marginTop="56dp"
-        android:layout_toRightOf="@+id/NomeMunicipio"
-        android:text="Button"
-        android:onClick="exibi" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Exibir Lista"
+        android:onClick="pegaMunicipio" />
 
 </RelativeLayout>
