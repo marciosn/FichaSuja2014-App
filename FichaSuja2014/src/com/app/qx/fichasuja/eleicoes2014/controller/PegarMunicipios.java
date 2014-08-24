@@ -1,4 +1,4 @@
-package com.app.qx.fichasuja.eleicoes2014;
+package com.app.qx.fichasuja.eleicoes2014.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,8 +14,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.app.qx.fichasuja.eleicoes2014.controller.AppController;
+import com.app.qx.fichasuja.eleicoes2014.MainActivity;
 import com.app.qx.fichasuja.eleicoes2014.models.Politico;
+import com.app.qx.fichasuja.eleicoes2014.models.Repositorio;
 
 public class PegarMunicipios {
 	private static final String TAG = MainActivity.class.getSimpleName();
@@ -32,6 +33,7 @@ public class PegarMunicipios {
 	private static final String CONTENT = "_content";
 	private static final String RSP = "rsp";
 	private Politico politico;
+	private Repositorio rep = new Repositorio();
 	
 	
 	public void pegarJSON(){
@@ -64,6 +66,7 @@ public class PegarMunicipios {
 								double codigo_municipio = Double.parseDouble(politicoJSON.getString(CODIGO_MUNICIPIO));
 								politico.setCodigo_municipio(codigo_municipio);
 								politicos.add(politico);
+								//rep.getPoliticosPorMunicipio().add(politico);
 				
 							}
 					} catch (Exception e) {

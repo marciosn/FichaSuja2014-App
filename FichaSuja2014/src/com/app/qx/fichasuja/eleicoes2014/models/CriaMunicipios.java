@@ -196,36 +196,15 @@ public class CriaMunicipios {
 	private  MunicipioObj SAO_JOAO_DO_JAGUARIBE = new MunicipioObj("São João do Jaguaribe",-5.319,-38.269);
 	
 	public void adicionarMunicipios(){
-		municipios.add(FORTALEZA);
-		municipios.add(SENADOR_POMPEU);
-		municipios.add(QUIXADA);
-		municipios.add(QUIXERAMOBIM);
-		municipios.add(BOA_VIAGEM);
-		municipios.add(MOMBACA);
-		municipios.add(LIMOEIRO_DO_NORTE);
-		municipios.add(DEPUTADO_IRAPUAN_PINHEIRO);
-		municipios.add(MILAGRES);
-		municipios.add(PIQUET_CARNEIRO);
-		municipios.add(SOBRAL);
-		municipios.add(MILHA);
-		municipios.add(HORIZONTE);
-		municipios.add(PACAJUS);
-		municipios.add(TURURU);
-		municipios.add(TIANGUA);
-		municipios.add(ITAPAGE);
-		municipios.add(ITAPIPOCA);
-		municipios.add(ITAPIUNA);
-		municipios.add(RUSSAS);
-		municipios.add(GUARAMIRANGA);
-		municipios.add(JAGUARUANA);
-		municipios.add(ACOPIARA);
-		municipios.add(IPU);
-		municipios.add(MISSAO_VELHA);
-		municipios.add(LAVRAS_DA_MANGABEIRA);
-		municipios.add(CEDRO);
-		municipios.add(ARARIPE);
-		municipios.add(IRACEMA);
-		municipios.add(PACAJUS);
+		municipios.add(FORTALEZA);municipios.add(SENADOR_POMPEU);municipios.add(QUIXADA);municipios.add(QUIXERAMOBIM);
+		municipios.add(BOA_VIAGEM);municipios.add(MOMBACA);	municipios.add(LIMOEIRO_DO_NORTE);municipios.add(DEPUTADO_IRAPUAN_PINHEIRO);
+		municipios.add(MILAGRES);municipios.add(PIQUET_CARNEIRO);municipios.add(SOBRAL);municipios.add(MILHA);municipios.add(HORIZONTE);
+		municipios.add(PACAJUS);municipios.add(TURURU);	municipios.add(TIANGUA);municipios.add(ITAPAGE);municipios.add(ITAPIPOCA);
+		municipios.add(ITAPIUNA);municipios.add(RUSSAS);municipios.add(GUARAMIRANGA);municipios.add(JAGUARUANA);municipios.add(ACOPIARA);
+		municipios.add(IPU);municipios.add(MISSAO_VELHA);municipios.add(LAVRAS_DA_MANGABEIRA);municipios.add(CEDRO);municipios.add(ARARIPE);
+		municipios.add(IRACEMA);municipios.add(PACAJUS);municipios.add(SENADOR_SA);municipios.add(PEDRA_BRANCA);municipios.add(TAUA);
+		municipios.add(PARAMBU);municipios.add(SANTA_QUITERIA);municipios.add(SALITRE);municipios.add(SAO_JOAO_DO_JAGUARIBE);
+		
 	}
 	
 	public MunicipioObj getVICOSA_DO_CEARA() {

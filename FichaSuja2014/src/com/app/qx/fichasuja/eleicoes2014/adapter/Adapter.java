@@ -46,7 +46,7 @@ public class Adapter extends BaseAdapter {
 		view = inflater.inflate(R.layout.list_row, null);
 		//((TextView) view.findViewById(R.id.text)).setText(politico.getGestor());
 		((TextView) view.findViewById(R.id.itemGestor)).setText(politico.getGestor());
-		((TextView) view.findViewById(R.id.itemMunicipio)).setText(politico.getMunicipio());
+		((TextView) view.findViewById(R.id.itemMunicipio)).setText("Natureza do Processo: "+politico.getNatureza_processo());
 		return view;
 	}
 

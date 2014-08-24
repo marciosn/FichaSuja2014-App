@@ -6,8 +6,10 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
+import com.app.qx.fichasuja.eleicoes2014.controller.PegarMunicipios;
 import com.app.qx.fichasuja.eleicoes2014.models.MunicipioObj;
 import com.app.qx.fichasuja.eleicoes2014.models.Politico;
+import com.app.qx.fichasuja.eleicoes2014.models.Repositorio;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -30,6 +32,7 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private PegarMunicipios municipio = new PegarMunicipios();
 	private ProgressDialog dialog;
 	private List<Politico> politicosDoMunicipio = new ArrayList<Politico>();
+	private Repositorio rep = new Repositorio();
 	private ListView listView;
 	private Adapter adapter;
 	private static final String GESTOR = "gestor";
@@ -40,7 +43,7 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private static final String NOTA_IMPROBIDADE = "nota_improbidade";
 	private static final String CODIG0_GESTOR = "codigo_gestor";
 	private static final String CODIGO_MUNICIPIO = "codigo_municipio";
-
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,13 +73,6 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	public void exibi(){
 		int i = 0;
 		i = municipio.getPoliticos().size();
-		/*if(i == 0){
-			Toast.makeText(MarkerMunicipio.this, "wait for loading...", Toast.LENGTH_LONG).show();
-		}
-		else{
-		String tam = String.valueOf(i);
-		Toast.makeText(MarkerMunicipio.this, tam, Toast.LENGTH_SHORT).show();
-		}*/
 	}
 	
 	public void pegaMunicipio(View view){
@@ -92,8 +88,8 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
         listView.setCacheColorHint(Color.TRANSPARENT);
         adapter.notifyDataSetChanged();
 	}
-		String tam = String.valueOf(politicosDoMunicipio.size());
-		Toast.makeText(MarkerMunicipio.this, "O Municipio tem "+tam, Toast.LENGTH_SHORT).show();
+		//String tam = String.valueOf(politicosDoMunicipio.size());
+		//Toast.makeText(MarkerMunicipio.this, "O Municipio tem "+tam, Toast.LENGTH_SHORT).show();
 	}
 	public void waitTimer(){
 		Timer timer = new Timer();
@@ -102,8 +98,9 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 			@Override
 			public void run() {
 				hideDialog();
+				
 			}
-		}, 10 * 1000);
+		}, 3 * 1000);
 	}
 
 	private void hideDialog() {

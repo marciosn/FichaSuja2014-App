@@ -21,5 +21,6 @@
     <string name="search_hint">Search color..</string>
     <string name="title_activity_municipios_no_mapa">Municipios</string>
     <string name="title_activity_marker_municipio">Município</string>
+    <string name="download_wallpaper">Download</string>
 
 </resources>
