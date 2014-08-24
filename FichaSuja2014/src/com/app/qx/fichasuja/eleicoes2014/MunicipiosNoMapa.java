@@ -1,5 +1,7 @@
 package com.app.qx.fichasuja.eleicoes2014;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.os.Bundle;
@@ -14,6 +16,7 @@ import com.google.android.gms.common.GooglePlayServicesClient.OnConnectionFailed
 import com.google.android.gms.location.LocationClient;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener;
 import com.google.android.gms.maps.GoogleMap.OnMyLocationButtonClickListener;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.GoogleMap.OnInfoWindowClickListener;
@@ -22,6 +25,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+@SuppressLint("ShowToast")
 public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
 	
 	private GoogleMap mMap;
@@ -89,11 +93,16 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 		}
 		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(CEARA, 6));
 		
-		mMap.setOnInfoWindowClickListener(new OnInfoWindowClickListener() {
+		mMap.setOnMarkerClickListener(new OnMarkerClickListener() {
 			
 			@Override
-			public void onInfoWindowClick(Marker arg0) {
-				Toast.makeText(MunicipiosNoMapa.this, "Testando", Toast.LENGTH_LONG);				
+			public boolean onMarkerClick(Marker m) {
+				if(!m.getTitle().equals(null)){
+					Intent intent = new Intent(MunicipiosNoMapa.this, MarkerMunicipio.class);
+					intent.putExtra("NomeMunicipio", m.getTitle());
+					startActivity(intent);
+				}
+				return false;
 			}
 		});
 	}

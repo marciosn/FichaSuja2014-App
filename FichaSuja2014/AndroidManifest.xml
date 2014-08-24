@@ -53,6 +53,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.app.qx.fichasuja.eleicoes2014.MarkerMunicipio"
+            android:label="@string/title_activity_marker_municipio" >    
+        </activity>
     </application>
 
 </manifest>

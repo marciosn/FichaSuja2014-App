@@ -20,7 +20,6 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.SearchView;
 
@@ -41,7 +40,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private ListView listView;
 	private Adapter adapter;
 	private Politico politico;
-	private EditText busca;
 
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
@@ -83,7 +81,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 							for(int j=0; j < array.length();j++){
 								politico = new Politico();
 								JSONObject politicoJSON = new JSONObject(array.getString(j));
-								Log.d(TAG, "GESTORES: "+politicoJSON.get(GESTOR));
 								politico.setGestor(politicoJSON.getString(GESTOR));
 								double processo = Double.parseDouble(politicoJSON.getString(PROCESSO));
 								politico.setProcesso(processo);

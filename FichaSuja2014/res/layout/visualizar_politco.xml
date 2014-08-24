@@ -9,7 +9,7 @@
     tools:context=".VisualizarPolitco" >
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/NomeMunicipio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -20,8 +20,8 @@
         android:id="@+id/gestor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/NomeMunicipio"
+        android:layout_below="@+id/NomeMunicipio"
         android:text="Medium Text"
         android:textStyle="bold"
          />
