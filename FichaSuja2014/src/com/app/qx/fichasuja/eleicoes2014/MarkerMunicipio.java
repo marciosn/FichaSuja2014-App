@@ -29,9 +29,9 @@ import android.widget.Toast;
 public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private TextView nomeTV;
 	private String municipioNome;
-	private PegarMunicipios municipio = new PegarMunicipios();
+	private PegarMunicipios pegaMunicipio = new PegarMunicipios();
 	private ProgressDialog dialog;
-	private List<Politico> politicosDoMunicipio = new ArrayList<Politico>();
+	private List<Politico> politicosPorMunicipio = new ArrayList<Politico>();
 	private Repositorio rep = new Repositorio();
 	private ListView listView;
 	private Adapter adapter;
@@ -51,14 +51,14 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 		
 		//tamanho total de politicos é 8167
 		
-		if((municipio.getPoliticos().size() <= 0)){
-			municipio.pegarJSON();
+		if((pegaMunicipio.getPoliticos().size() <= 0)){
+			pegaMunicipio.pegarJSON();
 			Toast.makeText(MarkerMunicipio.this, "Carregando JSON", Toast.LENGTH_LONG).show();
 		}
 		clear();
 		listView = (ListView) findViewById(R.id.listaMunicipios);
 		listView.setOnItemClickListener(this);
-		adapter = new Adapter(this, politicosDoMunicipio);
+		adapter = new Adapter(this, politicosPorMunicipio);
 		
 		Intent i = getIntent();
 		nomeTV = (TextView) findViewById(R.id.NomeMunicipio);
@@ -72,16 +72,16 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	}	
 	public void exibi(){
 		int i = 0;
-		i = municipio.getPoliticos().size();
+		i = pegaMunicipio.getPoliticos().size();
 	}
 	
 	public void pegaMunicipio(View view){
 		String nomeM = municipioNome.toUpperCase();
 		
-		if(politicosDoMunicipio.size() == 0){
-		for(Politico p : municipio.getPoliticos()){
+		if(politicosPorMunicipio.size() == 0){
+		for(Politico p : pegaMunicipio.getPoliticos()){
 			if(p.getMunicipio().contains(nomeM)){
-				politicosDoMunicipio.add(p);
+				politicosPorMunicipio.add(p);
 			}
 		}
 		listView.setAdapter(adapter);
@@ -110,8 +110,8 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 		}
 	}
 	public void clear(){
-		for(Politico p: politicosDoMunicipio){
-			politicosDoMunicipio.remove(p);
+		for(Politico p: politicosPorMunicipio){
+			politicosPorMunicipio.remove(p);
 		}
 	}
 	
