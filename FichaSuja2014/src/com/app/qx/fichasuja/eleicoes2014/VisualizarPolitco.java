@@ -3,6 +3,7 @@ package com.app.qx.fichasuja.eleicoes2014;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.view.Menu;
 import android.widget.TextView;
 
@@ -11,6 +12,11 @@ public class VisualizarPolitco extends Activity {
 	private TextView gestorTV, processoTV, municipioTV, natureza_processoTV,
 			exercicioTV, nota_improbidadeTV, codigo_gestorTV,
 			codigo_municipioVT;
+	
+	private TextView gestorT, processoT, municipioT, natureza_processoT,
+	exercicioT, nota_improbidadeT, codigo_gestorT,
+	codigo_municipioV;
+	
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
 	private static final String MUNICIPIO = "municipio";
@@ -24,7 +30,8 @@ public class VisualizarPolitco extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.visualizar_politco);
-
+		String fontPath = "fonts/basic_square_7_solid.ttf";
+		Typeface font = Typeface.createFromAsset(getAssets(), fontPath);
 		Intent i = getIntent();
 
 		gestorTV = (TextView) findViewById(R.id.gestor);
@@ -44,6 +51,18 @@ public class VisualizarPolitco extends Activity {
 		nota_improbidadeTV.setText(i.getExtras().getString(NOTA_IMPROBIDADE));
 		codigo_gestorTV.setText(i.getExtras().getString(CODIG0_GESTOR));
 		codigo_municipioVT.setText(i.getExtras().getString(CODIGO_MUNICIPIO));
+		
+		
+		gestorT.setTypeface(font);
+		
+		gestorTV.setTypeface(font);
+		processoTV.setTypeface(font);
+		municipioTV.setTypeface(font);
+		natureza_processoTV.setTypeface(font);
+		exercicioTV.setTypeface(font);
+		nota_improbidadeTV.setTypeface(font);
+		codigo_gestorTV.setTypeface(font);
+		codigo_municipioVT.setTypeface(font);
 
 	}
 

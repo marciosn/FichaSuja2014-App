@@ -16,6 +16,7 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -32,7 +33,6 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private PegarMunicipios pegaMunicipio = new PegarMunicipios();
 	private ProgressDialog dialog;
 	private List<Politico> politicosPorMunicipio = new ArrayList<Politico>();
-	private Repositorio rep = new Repositorio();
 	private ListView listView;
 	private Adapter adapter;
 	private static final String GESTOR = "gestor";
@@ -48,7 +48,6 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.marker_municipio);
-		
 		//tamanho total de politicos é 8167
 		
 		if((pegaMunicipio.getPoliticos().size() <= 0)){

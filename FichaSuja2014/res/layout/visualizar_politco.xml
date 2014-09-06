@@ -23,6 +23,7 @@
         android:layout_alignLeft="@+id/NomeMunicipio"
         android:layout_below="@+id/NomeMunicipio"
         android:text="Medium Text"
+        android:textColor="#000000"
         android:textStyle="bold"
          />
 

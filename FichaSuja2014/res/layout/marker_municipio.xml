@@ -14,7 +14,9 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Medium Text"
+        android:text="Nome Municipio"
+        android:layout_marginTop="4dp"
+        android:layout_marginLeft="6dp"
         android:textAppearance="?android:attr/textAppearanceMedium" />
     
     <ListView
