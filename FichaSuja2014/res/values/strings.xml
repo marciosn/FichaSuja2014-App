@@ -22,5 +22,6 @@
     <string name="title_activity_municipios_no_mapa">Municipios</string>
     <string name="title_activity_marker_municipio">Município</string>
     <string name="download_wallpaper">Download</string>
+    <string name="title_activity_splash">Splash</string>
 
 </resources>

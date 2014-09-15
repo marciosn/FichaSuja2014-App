@@ -1,7 +1,6 @@
 package com.app.qx.fichasuja.eleicoes2014;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,47 +8,32 @@ import org.json.JSONObject;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ListView;
-import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.VolleyLog;
-import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
-import com.app.qx.fichasuja.eleicoes2014.controller.AppController;
+import com.android.volley.toolbox.Volley;
 import com.app.qx.fichasuja.eleicoes2014.models.Politico;
-import com.app.qx.fichasuja.eleicoes2014.models.Utils;
+import com.google.android.gms.internal.bu;
 
-public class MainActivity extends Activity implements OnItemClickListener {
+public class Splash extends Activity {
+	private static final String url = "http://api.tcm.ce.gov.br/tre/1_0/processos_gestores.json";
 	private static final String TAG = MainActivity.class.getSimpleName();
-	private static final String url = "http://marciosn.github.io/JSON/json/processos_gestores.json";
 	private ProgressDialog dialog;
-	private List<Politico> politicos = new ArrayList<Politico>();
-	private ListView listView;
-	private Adapter adapter;
 	private Politico politico;
-	private ArrayList<Politico> list;
+	private ArrayList<Politico> politicos;
 	private RequestQueue rq;
-	private ImageLoader imageLoader;
-	private Utils utils;
 	private AlertDialog alerta;
-
 	private static final String GESTOR = "gestor";
 	private static final String PROCESSO = "processo";
 	private static final String MUNICIPIO = "municipio";
@@ -60,19 +44,13 @@ public class MainActivity extends Activity implements OnItemClickListener {
 	private static final String CODIGO_MUNICIPIO = "codigo_municipio";
 	private static final String CONTENT = "_content";
 	private static final String RSP = "rsp";
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-				
-		listView= (ListView) findViewById(R.id.listaMunicipios);
-		/*utils = new Utils(this);
+		setContentView(R.layout.activity_splash);
 		
-		list = getIntent().getParcelableArrayListExtra("politicos");*/
-		adapter = new Adapter(this, politicos);
-		//listView.setAdapter(adapter);
-		listView.setOnItemClickListener(this);
+		/*rq = Volley.newRequestQueue(Splash.this);
 		
 		dialog = new ProgressDialog(this);
 		dialog.setMessage("Carregando...");
@@ -111,12 +89,11 @@ public class MainActivity extends Activity implements OnItemClickListener {
 							}
 					} catch (Exception e) {
 						e.printStackTrace();
-					}
-					
+					}	
 				}
-				listView.setAdapter(adapter);
-		        listView.setCacheColorHint(Color.TRANSPARENT);
-		        adapter.notifyDataSetChanged();
+				Intent intent = new Intent(Splash.this, MainActivity.class);
+				intent.putParcelableArrayListExtra("politicos", politicos);
+				startActivity(intent);
 			}
 		}, new Response.ErrorListener() {
 
@@ -125,11 +102,29 @@ public class MainActivity extends Activity implements OnItemClickListener {
 				VolleyLog.d(TAG, "Error: "+ error.getMessage());
 				hideDialog();
 				alertProblem();
-				
 			}
 		});
-		AppController.getInstance().addToRequestQueue(request);
-				
+		request.setTag("tag");
+		rq.add(request);*/
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.splash, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle action bar item clicks here. The action bar will
+		// automatically handle clicks on the Home/Up button, so long
+		// as you specify a parent activity in AndroidManifest.xml.
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
 	}
 	private void hideDialog() {
 		if (dialog != null) {
@@ -137,38 +132,6 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			dialog = null;
 		}
 	}
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		MenuInflater inflater = getMenuInflater();
-		inflater.inflate(R.menu.main_actions, menu);
-
-		SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
-		SearchView searchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-		searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-		return super.onCreateOptionsMenu(menu);
-	}
-
-	@Override
-	public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-		Intent intent = new Intent(MainActivity.this, VisualizarPolitco.class);
-		Politico politico = (Politico) parent.getItemAtPosition(position);
-		
-		String processo = String.valueOf(politico.getProcesso());
-		String exercicio = String.valueOf(politico.getExercicio());
-		String codigo_gestor = String.valueOf(politico.getCodigo_gestor());
-		String codigo_municipio = String.valueOf(politico.getCodigo_municipio());
-		
-		intent.putExtra(GESTOR, politico.getGestor());
-		intent.putExtra(PROCESSO, processo);
-		intent.putExtra(MUNICIPIO, politico.getMunicipio());
-		intent.putExtra(NATUREZA_PROCESSO, politico.getNatureza_processo());
-		intent.putExtra(EXERCICIO, exercicio);
-		intent.putExtra(NOTA_IMPROBIDADE, politico.getNota_improbidade());
-		intent.putExtra(CODIG0_GESTOR, codigo_gestor);
-		intent.putExtra(CODIGO_MUNICIPIO, codigo_municipio);
-		startActivity(intent);
-	}
-	
 	private void alertProblem(){
 		LayoutInflater li = getLayoutInflater();
 		View view = li.inflate(R.layout.alert, null);
@@ -176,7 +139,7 @@ public class MainActivity extends Activity implements OnItemClickListener {
 			
 			@Override
 			public void onClick(View v) {
-				 //Toast.makeText(MainActivity.this, "alerta.dismiss()", Toast.LENGTH_SHORT).show();
+				 //Toast.makeText(Splash.this, "alerta.dismiss()", Toast.LENGTH_SHORT).show();
 	                alerta.dismiss();
 				
 			}
@@ -188,5 +151,5 @@ public class MainActivity extends Activity implements OnItemClickListener {
 		alerta = builder.create();
 		alerta.show();
 	}
-
 }
+

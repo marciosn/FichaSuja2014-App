@@ -1,30 +1,27 @@
 package com.app.qx.fichasuja.eleicoes2014;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
-import com.app.qx.fichasuja.eleicoes2014.controller.PegarMunicipios;
-import com.app.qx.fichasuja.eleicoes2014.models.MunicipioObj;
-import com.app.qx.fichasuja.eleicoes2014.models.Politico;
-import com.app.qx.fichasuja.eleicoes2014.models.Repositorio;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
+import com.app.qx.fichasuja.eleicoes2014.controller.PegarMunicipios;
+import com.app.qx.fichasuja.eleicoes2014.models.Politico;
+import com.app.qx.fichasuja.eleicoes2014.models.Utils;
 
 @SuppressLint("DefaultLocale")
 public class MarkerMunicipio extends Activity implements OnItemClickListener{
@@ -32,7 +29,7 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private String municipioNome;
 	private PegarMunicipios pegaMunicipio = new PegarMunicipios();
 	private ProgressDialog dialog;
-	private List<Politico> politicosPorMunicipio = new ArrayList<Politico>();
+	private ArrayList<Politico> politicosPorMunicipio = new ArrayList<Politico>();
 	private ListView listView;
 	private Adapter adapter;
 	private static final String GESTOR = "gestor";
@@ -43,46 +40,40 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private static final String NOTA_IMPROBIDADE = "nota_improbidade";
 	private static final String CODIG0_GESTOR = "codigo_gestor";
 	private static final String CODIGO_MUNICIPIO = "codigo_municipio";
+	private ArrayList<Politico> list;
+	private Utils utils;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.marker_municipio);
-		//tamanho total de politicos é 8167
 		
-		if((pegaMunicipio.getPoliticos().size() <= 0)){
-			pegaMunicipio.pegarJSON();
-			Toast.makeText(MarkerMunicipio.this, "Carregando JSON", Toast.LENGTH_LONG).show();
-		}
-		clear();
+		
 		listView = (ListView) findViewById(R.id.listaMunicipios);
-		listView.setOnItemClickListener(this);
-		adapter = new Adapter(this, politicosPorMunicipio);
 		
 		Intent i = getIntent();
 		nomeTV = (TextView) findViewById(R.id.NomeMunicipio);
 		municipioNome = i.getExtras().getString("NomeMunicipio");
 		nomeTV.setText(municipioNome);
 		
-		dialog = new ProgressDialog(this);
-		dialog.setMessage("Wait...");
-		dialog.show();
-		waitTimer();
+		list = getIntent().getParcelableArrayListExtra("politicos");
+		//Toast.makeText(MarkerMunicipio.this, "O Municipio tem "+list.size(), Toast.LENGTH_SHORT).show();
+		//Log.d("tamanho Lista", list.toString());
+		utils = new Utils(getApplicationContext());
+		//adapter = new Adapter(getApplicationContext(), politicosPorMunicipio);
+		listView.setOnItemClickListener(this);
 	}	
-	public void exibi(){
-		int i = 0;
-		i = pegaMunicipio.getPoliticos().size();
-	}
 	
-	public void pegaMunicipio(View view){
+	public void pegaMunicipio(){
 		String nomeM = municipioNome.toUpperCase();
 		
 		if(politicosPorMunicipio.size() == 0){
-		for(Politico p : pegaMunicipio.getPoliticos()){
+		for(Politico p : list){
 			if(p.getMunicipio().contains(nomeM)){
 				politicosPorMunicipio.add(p);
 			}
 		}
+		adapter = new Adapter(this, politicosPorMunicipio);
 		listView.setAdapter(adapter);
         listView.setCacheColorHint(Color.TRANSPARENT);
         adapter.notifyDataSetChanged();

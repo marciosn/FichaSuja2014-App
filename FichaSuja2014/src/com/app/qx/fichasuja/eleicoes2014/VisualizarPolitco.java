@@ -53,7 +53,6 @@ public class VisualizarPolitco extends Activity {
 		codigo_municipioVT.setText(i.getExtras().getString(CODIGO_MUNICIPIO));
 		
 		
-		gestorT.setTypeface(font);
 		
 		gestorTV.setTypeface(font);
 		processoTV.setTypeface(font);

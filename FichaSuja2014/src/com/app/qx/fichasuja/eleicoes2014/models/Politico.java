@@ -1,6 +1,9 @@
 package com.app.qx.fichasuja.eleicoes2014.models;
 
-public class Politico {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Politico implements Parcelable{
 	private String gestor;
 	private String municipio;
 	private String natureza_processo;
@@ -9,6 +12,28 @@ public class Politico {
 	private double exercicio;
 	private double codigo_gestor;
 	private double codigo_municipio;
+	
+	public Politico() {
+		/*gestor = "";
+		municipio = "";
+		natureza_processo = "";
+		nota_improbidade = "";
+		processo = 0;
+		exercicio = 0;
+		codigo_gestor = 0;
+		codigo_municipio = 0;*/
+	}
+	public Politico(Parcel parcel) {
+		this.gestor = parcel.readString();
+		this.municipio = parcel.readString();
+		this.natureza_processo = parcel.readString();
+		this.nota_improbidade = parcel.readString();
+		this.processo = parcel.readDouble();
+		this.exercicio = parcel.readDouble();
+		this.codigo_gestor = parcel.readDouble();
+		this.codigo_municipio = parcel.readDouble();
+	}
+	
 
 	public String getGestor() {
 		return gestor;
@@ -73,5 +98,34 @@ public class Politico {
 	public void setCodigo_municipio(double codigo_municipio) {
 		this.codigo_municipio = codigo_municipio;
 	}
+
+	@Override
+	public int describeContents() {
+		return 0;
+	}
+
+	@Override
+	public void writeToParcel(Parcel dest, int flags) {
+		dest.writeString(gestor);
+		dest.writeString(municipio);
+		dest.writeString(natureza_processo);
+		dest.writeString(nota_improbidade);
+		dest.writeDouble(processo);
+		dest.writeDouble(exercicio);
+		dest.writeDouble(codigo_gestor);
+		dest.writeDouble(codigo_municipio);
+	}
+public static final Parcelable.Creator<Politico> CREATOR = new Creator<Politico>() {
+		
+		@Override
+		public Politico[] newArray(int size) {
+			return new Politico[size];
+		}
+		
+		@Override
+		public Politico createFromParcel(Parcel source) {
+			return new Politico(source);
+		}
+	};
 
 }

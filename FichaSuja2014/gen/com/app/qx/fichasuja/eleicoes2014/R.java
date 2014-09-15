@@ -166,6 +166,11 @@ containing a value of this type.
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
 
+         Example customization of dimensions originally defined in res/values/dimens.xml
+         (such as screen margins) for screens with more than 820dp of available width. This
+         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively).
+    
+
          Customize dimensions originally defined in res/values/dimens.xml (such as
          screen margins) for sw720dp devices (e.g. 10" tablets) in landscape here.
     
@@ -178,105 +183,111 @@ containing a value of this type.
         public static final int year=0x7f070005;
     }
     public static final class drawable {
-        public static final int btn_rounded_corner=0x7f020000;
-        public static final int common_signin_btn_icon_dark=0x7f020001;
-        public static final int common_signin_btn_icon_disabled_dark=0x7f020002;
-        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020003;
-        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020004;
-        public static final int common_signin_btn_icon_disabled_light=0x7f020005;
-        public static final int common_signin_btn_icon_focus_dark=0x7f020006;
-        public static final int common_signin_btn_icon_focus_light=0x7f020007;
-        public static final int common_signin_btn_icon_light=0x7f020008;
-        public static final int common_signin_btn_icon_normal_dark=0x7f020009;
-        public static final int common_signin_btn_icon_normal_light=0x7f02000a;
-        public static final int common_signin_btn_icon_pressed_dark=0x7f02000b;
-        public static final int common_signin_btn_icon_pressed_light=0x7f02000c;
-        public static final int common_signin_btn_text_dark=0x7f02000d;
-        public static final int common_signin_btn_text_disabled_dark=0x7f02000e;
-        public static final int common_signin_btn_text_disabled_focus_dark=0x7f02000f;
-        public static final int common_signin_btn_text_disabled_focus_light=0x7f020010;
-        public static final int common_signin_btn_text_disabled_light=0x7f020011;
-        public static final int common_signin_btn_text_focus_dark=0x7f020012;
-        public static final int common_signin_btn_text_focus_light=0x7f020013;
-        public static final int common_signin_btn_text_light=0x7f020014;
-        public static final int common_signin_btn_text_normal_dark=0x7f020015;
-        public static final int common_signin_btn_text_normal_light=0x7f020016;
-        public static final int common_signin_btn_text_pressed_dark=0x7f020017;
-        public static final int common_signin_btn_text_pressed_light=0x7f020018;
-        public static final int ic_action_direction=0x7f020019;
-        public static final int ic_action_help=0x7f02001a;
-        public static final int ic_action_location_found=0x7f02001b;
-        public static final int ic_action_place=0x7f02001c;
-        public static final int ic_action_refresh=0x7f02001d;
-        public static final int ic_action_search=0x7f02001e;
-        public static final int ic_checkin=0x7f02001f;
-        public static final int ic_latitude=0x7f020020;
-        public static final int ic_launcher=0x7f020021;
-        public static final int ic_location=0x7f020022;
-        public static final int ic_my_places=0x7f020023;
-        public static final int ic_plusone_medium_off_client=0x7f020024;
-        public static final int ic_plusone_small_off_client=0x7f020025;
-        public static final int ic_plusone_standard_off_client=0x7f020026;
-        public static final int ic_plusone_tall_off_client=0x7f020027;
-        public static final int ico_actionbar=0x7f020028;
-        public static final int ico_download=0x7f020029;
-        public static final int icon1=0x7f02002a;
-        public static final int icon2=0x7f02002b;
-        public static final int list_row_bg=0x7f02002c;
-        public static final int list_row_bg_hover=0x7f02002d;
-        public static final int list_row_selector=0x7f02002e;
-        public static final int marker1=0x7f02002f;
+        public static final int androiderror=0x7f020000;
+        public static final int btn_rounded_corner=0x7f020001;
+        public static final int common_signin_btn_icon_dark=0x7f020002;
+        public static final int common_signin_btn_icon_disabled_dark=0x7f020003;
+        public static final int common_signin_btn_icon_disabled_focus_dark=0x7f020004;
+        public static final int common_signin_btn_icon_disabled_focus_light=0x7f020005;
+        public static final int common_signin_btn_icon_disabled_light=0x7f020006;
+        public static final int common_signin_btn_icon_focus_dark=0x7f020007;
+        public static final int common_signin_btn_icon_focus_light=0x7f020008;
+        public static final int common_signin_btn_icon_light=0x7f020009;
+        public static final int common_signin_btn_icon_normal_dark=0x7f02000a;
+        public static final int common_signin_btn_icon_normal_light=0x7f02000b;
+        public static final int common_signin_btn_icon_pressed_dark=0x7f02000c;
+        public static final int common_signin_btn_icon_pressed_light=0x7f02000d;
+        public static final int common_signin_btn_text_dark=0x7f02000e;
+        public static final int common_signin_btn_text_disabled_dark=0x7f02000f;
+        public static final int common_signin_btn_text_disabled_focus_dark=0x7f020010;
+        public static final int common_signin_btn_text_disabled_focus_light=0x7f020011;
+        public static final int common_signin_btn_text_disabled_light=0x7f020012;
+        public static final int common_signin_btn_text_focus_dark=0x7f020013;
+        public static final int common_signin_btn_text_focus_light=0x7f020014;
+        public static final int common_signin_btn_text_light=0x7f020015;
+        public static final int common_signin_btn_text_normal_dark=0x7f020016;
+        public static final int common_signin_btn_text_normal_light=0x7f020017;
+        public static final int common_signin_btn_text_pressed_dark=0x7f020018;
+        public static final int common_signin_btn_text_pressed_light=0x7f020019;
+        public static final int ic_action_direction=0x7f02001a;
+        public static final int ic_action_help=0x7f02001b;
+        public static final int ic_action_location_found=0x7f02001c;
+        public static final int ic_action_place=0x7f02001d;
+        public static final int ic_action_refresh=0x7f02001e;
+        public static final int ic_action_search=0x7f02001f;
+        public static final int ic_checkin=0x7f020020;
+        public static final int ic_latitude=0x7f020021;
+        public static final int ic_launcher=0x7f020022;
+        public static final int ic_location=0x7f020023;
+        public static final int ic_my_places=0x7f020024;
+        public static final int ic_plusone_medium_off_client=0x7f020025;
+        public static final int ic_plusone_small_off_client=0x7f020026;
+        public static final int ic_plusone_standard_off_client=0x7f020027;
+        public static final int ic_plusone_tall_off_client=0x7f020028;
+        public static final int ico_actionbar=0x7f020029;
+        public static final int ico_download=0x7f02002a;
+        public static final int icon1=0x7f02002b;
+        public static final int icon2=0x7f02002c;
+        public static final int list_row_bg=0x7f02002d;
+        public static final int list_row_bg_hover=0x7f02002e;
+        public static final int list_row_selector=0x7f02002f;
+        public static final int marker1=0x7f020030;
     }
     public static final class id {
-        public static final int NomeMunicipio=0x7f050009;
-        public static final int action_check_updates=0x7f050020;
-        public static final int action_help=0x7f05001f;
-        public static final int action_location_found=0x7f05001d;
-        public static final int action_refresh=0x7f05001e;
-        public static final int action_search=0x7f05001c;
-        public static final int action_settings=0x7f05001b;
-        public static final int button1=0x7f05000a;
-        public static final int codigo_gestor=0x7f050018;
-        public static final int codigo_municipio=0x7f05001a;
-        public static final int exercicio=0x7f050014;
-        public static final int gestor=0x7f05000c;
+        public static final int NomeMunicipio=0x7f05000b;
+        public static final int action_check_updates=0x7f050022;
+        public static final int action_help=0x7f050021;
+        public static final int action_location_found=0x7f05001f;
+        public static final int action_refresh=0x7f050020;
+        public static final int action_search=0x7f05001e;
+        public static final int action_settings=0x7f05001d;
+        public static final int bt=0x7f050007;
+        public static final int button1=0x7f05000c;
+        public static final int codigo_gestor=0x7f05001a;
+        public static final int codigo_municipio=0x7f05001c;
+        public static final int exercicio=0x7f050016;
+        public static final int gestor=0x7f05000e;
         public static final int hybrid=0x7f050004;
-        public static final int itemGestor=0x7f050007;
-        public static final int itemMunicipio=0x7f050008;
+        public static final int itemGestor=0x7f050009;
+        public static final int itemMunicipio=0x7f05000a;
         public static final int listaMunicipios=0x7f050005;
-        public static final int map=0x7f05000b;
-        public static final int municipio=0x7f050010;
-        public static final int natureza_processo=0x7f050012;
+        public static final int map=0x7f05000d;
+        public static final int municipio=0x7f050012;
+        public static final int natureza_processo=0x7f050014;
         public static final int none=0x7f050000;
         public static final int normal=0x7f050001;
-        public static final int nota_improbidade=0x7f050016;
-        public static final int processo=0x7f05000e;
+        public static final int nota_improbidade=0x7f050018;
+        public static final int processo=0x7f050010;
         public static final int satellite=0x7f050002;
         public static final int terrain=0x7f050003;
-        public static final int text=0x7f050006;
-        public static final int textView2=0x7f05000d;
-        public static final int textView3=0x7f05000f;
-        public static final int textView4=0x7f050011;
-        public static final int textView5=0x7f050013;
-        public static final int textView6=0x7f050015;
-        public static final int textView7=0x7f050017;
-        public static final int textView8=0x7f050019;
+        public static final int text=0x7f050008;
+        public static final int textView1=0x7f050006;
+        public static final int textView2=0x7f05000f;
+        public static final int textView3=0x7f050011;
+        public static final int textView4=0x7f050013;
+        public static final int textView5=0x7f050015;
+        public static final int textView6=0x7f050017;
+        public static final int textView7=0x7f050019;
+        public static final int textView8=0x7f05001b;
     }
     public static final class layout {
         public static final int activity_main=0x7f030000;
-        public static final int item_list=0x7f030001;
-        public static final int list_row=0x7f030002;
-        public static final int marker_municipio=0x7f030003;
-        public static final int municipios_no_mapa=0x7f030004;
-        public static final int visualizar_politco=0x7f030005;
+        public static final int activity_splash=0x7f030001;
+        public static final int alert=0x7f030002;
+        public static final int item_list=0x7f030003;
+        public static final int list_row=0x7f030004;
+        public static final int marker_municipio=0x7f030005;
+        public static final int municipios_no_mapa=0x7f030006;
+        public static final int visualizar_politco=0x7f030007;
     }
     public static final class menu {
         public static final int main=0x7f090000;
         public static final int main_actions=0x7f090001;
         public static final int marker_municipio=0x7f090002;
         public static final int municipios_no_mapa=0x7f090003;
-        public static final int testa_volley=0x7f090004;
-        public static final int visualizar_politco=0x7f090005;
+        public static final int splash=0x7f090004;
+        public static final int testa_volley=0x7f090005;
+        public static final int visualizar_politco=0x7f090006;
     }
     public static final class string {
         public static final int action_check_updates=0x7f060024;
@@ -389,6 +400,7 @@ containing a value of this type.
         public static final int search_hint=0x7f060025;
         public static final int title_activity_marker_municipio=0x7f060027;
         public static final int title_activity_municipios_no_mapa=0x7f060026;
+        public static final int title_activity_splash=0x7f060029;
         public static final int title_activity_testa_volley=0x7f06001c;
         public static final int title_activity_visualizar_politco=0x7f06001d;
     }
