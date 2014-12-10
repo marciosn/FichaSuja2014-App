@@ -8,14 +8,24 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.app.qx.fichasuja.eleicoes2014.Splash" >
 
-    <TextView
-        android:id="@+id/textView1"
+    <Button
+        android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
-        android:text="Large Text"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:layout_marginTop="46dp"
+        android:text="Ir para o mapa"
+        android:onClick="mapa" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="128dp"
+        android:text="Ir para a lista"
+        android:onClick="lista" />
 
 </RelativeLayout>

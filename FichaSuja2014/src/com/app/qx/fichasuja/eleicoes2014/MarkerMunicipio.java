@@ -17,11 +17,16 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.Volley;
 import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
 import com.app.qx.fichasuja.eleicoes2014.controller.PegarMunicipios;
 import com.app.qx.fichasuja.eleicoes2014.models.Politico;
-import com.app.qx.fichasuja.eleicoes2014.models.Utils;
+import com.app.qx.fichasuja.eleicoes2014.utils.Utils;
+import com.google.android.gms.internal.l;
 
 @SuppressLint("DefaultLocale")
 public class MarkerMunicipio extends Activity implements OnItemClickListener{
@@ -42,6 +47,8 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	private static final String CODIGO_MUNICIPIO = "codigo_municipio";
 	private ArrayList<Politico> list;
 	private Utils utils;
+	private RequestQueue rq;
+	private ImageLoader imageLoader;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -49,29 +56,31 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 		setContentView(R.layout.marker_municipio);
 		
 		
-		listView = (ListView) findViewById(R.id.listaMunicipios);
+		list = getIntent().getParcelableArrayListExtra("list");
+		rq = Volley.newRequestQueue(MarkerMunicipio.this);
+		utils = new Utils(this);
 		
-		Intent i = getIntent();
+		/*Intent i = getIntent();
 		nomeTV = (TextView) findViewById(R.id.NomeMunicipio);
 		municipioNome = i.getExtras().getString("NomeMunicipio");
-		nomeTV.setText(municipioNome);
+		nomeTV.setText(municipioNome);*/
 		
-		list = getIntent().getParcelableArrayListExtra("politicos");
-		//Toast.makeText(MarkerMunicipio.this, "O Municipio tem "+list.size(), Toast.LENGTH_SHORT).show();
-		//Log.d("tamanho Lista", list.toString());
-		utils = new Utils(getApplicationContext());
-		//adapter = new Adapter(getApplicationContext(), politicosPorMunicipio);
-		listView.setOnItemClickListener(this);
-	}	
+		if(list != null){			
+	        Toast.makeText(MarkerMunicipio.this, "Lista vazia", Toast.LENGTH_SHORT).show();
+		}else{
+			listView = (ListView) findViewById(R.id.listaMunicipios);
+			listView.setAdapter(new Adapter(this, list));
+			listView.setCacheColorHint(Color.TRANSPARENT);
+	        listView.setOnItemClickListener(this);
+		}
+}	
 	
 	public void pegaMunicipio(){
 		String nomeM = municipioNome.toUpperCase();
 		
-		if(politicosPorMunicipio.size() == 0){
 		for(Politico p : list){
 			if(p.getMunicipio().contains(nomeM)){
 				politicosPorMunicipio.add(p);
-			}
 		}
 		adapter = new Adapter(this, politicosPorMunicipio);
 		listView.setAdapter(adapter);
@@ -80,6 +89,9 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	}
 		//String tam = String.valueOf(politicosDoMunicipio.size());
 		//Toast.makeText(MarkerMunicipio.this, "O Municipio tem "+tam, Toast.LENGTH_SHORT).show();
+	}
+	public void test(View view){
+		Toast.makeText(MarkerMunicipio.this, "Lista "+list.size(), Toast.LENGTH_SHORT).show();
 	}
 	public void waitTimer(){
 		Timer timer = new Timer();
@@ -107,7 +119,6 @@ public class MarkerMunicipio extends Activity implements OnItemClickListener{
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.marker_municipio, menu);
 		return true;
 	}

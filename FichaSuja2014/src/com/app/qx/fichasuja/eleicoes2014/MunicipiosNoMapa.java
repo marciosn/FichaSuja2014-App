@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.location.Location;
@@ -13,7 +14,9 @@ import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.View;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -42,7 +45,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 @SuppressLint("ShowToast")
 public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCallbacks, OnConnectionFailedListener, LocationListener {
-	private static final String url = "http://marciosn.github.io/JSON/json/processos_gestores.json";
+	private static final String url = "http://api.tcm.ce.gov.br/tre/1_0/processos_gestores.json";
 	private GoogleMap mMap;
 	private GoogleMap map = null;
 	private LocationClient locationClient;
@@ -64,18 +67,20 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 	private Politico politico;
 	private ProgressDialog dialog;
 	private Intent intent;
+	private AlertDialog alerta;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.municipios_no_mapa);
-		getJSON();
+		rq = Volley.newRequestQueue(MunicipiosNoMapa.this);
 		
 		if (map == null) {
 			map = ((SupportMapFragment) getSupportFragmentManager()
 					.findFragmentById(R.id.map)).getMap();
 			map.getUiSettings().setMyLocationButtonEnabled(false);
 		}
+		getJSON();
 	}
 	private void hideDialog() {
 		if (dialog != null) {
@@ -151,10 +156,11 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 			
 			@Override
 			public boolean onMarkerClick(Marker m) {
+				
 				if(!m.getTitle().equals(null)){
 					intent = new Intent(MunicipiosNoMapa.this, MarkerMunicipio.class);
-					intent.putParcelableArrayListExtra("politicos", politicos);
-					intent.putExtra("NomeMunicipio", m.getTitle());
+					intent.putParcelableArrayListExtra("list", politicos);
+					//intent.putExtra("NomeMunicipio", m.getTitle());
 					startActivity(intent);
 				}
 				return false;
@@ -201,9 +207,9 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 				
 							}
 							
-							intent = new Intent(MunicipiosNoMapa.this, MarkerMunicipio.class);
-							intent.putParcelableArrayListExtra("politicos", politicos);
-							
+//							intent = new Intent(MunicipiosNoMapa.this, MarkerMunicipio.class);
+//							intent.putParcelableArrayListExtra("politicos", politicos);
+//							startActivity(intent);
 					} catch (Exception e) {
 						e.printStackTrace();
 					}	
@@ -215,6 +221,7 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 			public void onErrorResponse(VolleyError error) {
 				VolleyLog.d("PROBLEM", "Error: "+ error.getMessage());
 				hideDialog();
+				alertProblem();
 			}
 		});
 		request.setTag("tag");
@@ -267,6 +274,25 @@ public class MunicipiosNoMapa extends FragmentActivity implements ConnectionCall
 	public void onDisconnected() {
 		// TODO Auto-generated method stub
 		
+	}
+	private void alertProblem(){
+		LayoutInflater li = getLayoutInflater();
+		View view = li.inflate(R.layout.alert, null);
+		view.findViewById(R.id.bt).setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				 //Toast.makeText(MainActivity.this, "alerta.dismiss()", Toast.LENGTH_SHORT).show();
+	                alerta.dismiss();
+				
+			}
+		});
+		
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("we have a problem!");
+		builder.setView(view);
+		alerta = builder.create();
+		alerta.show();
 	}
 
 }

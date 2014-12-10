@@ -34,11 +34,11 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.app.qx.fichasuja.eleicoes2014.adapter.Adapter;
 import com.app.qx.fichasuja.eleicoes2014.controller.AppController;
 import com.app.qx.fichasuja.eleicoes2014.models.Politico;
-import com.app.qx.fichasuja.eleicoes2014.models.Utils;
+import com.app.qx.fichasuja.eleicoes2014.utils.Utils;
 
 public class MainActivity extends Activity implements OnItemClickListener {
 	private static final String TAG = MainActivity.class.getSimpleName();
-	private static final String url = "http://marciosn.github.io/JSON/json/processos_gestores.json";
+	private static final String url = "http://api.tcm.ce.gov.br/tre/1_0/processos_gestores.json";
 	private ProgressDialog dialog;
 	private List<Politico> politicos = new ArrayList<Politico>();
 	private ListView listView;

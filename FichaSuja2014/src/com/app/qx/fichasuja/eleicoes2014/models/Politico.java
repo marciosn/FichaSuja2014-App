@@ -14,14 +14,14 @@ public class Politico implements Parcelable{
 	private double codigo_municipio;
 	
 	public Politico() {
-		/*gestor = "";
+		gestor = "";
 		municipio = "";
 		natureza_processo = "";
 		nota_improbidade = "";
 		processo = 0;
 		exercicio = 0;
 		codigo_gestor = 0;
-		codigo_municipio = 0;*/
+		codigo_municipio = 0;
 	}
 	public Politico(Parcel parcel) {
 		this.gestor = parcel.readString();

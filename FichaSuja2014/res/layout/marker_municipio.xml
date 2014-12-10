@@ -37,6 +37,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:text="Exibir Lista"
-        android:onClick="pegaMunicipio" />
+        android:onClick="test" />
 
 </RelativeLayout>
